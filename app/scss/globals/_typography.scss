@@ -1,0 +1,62 @@
+@use "../util/" as util;
+
+// <h> tags
+h1,
+h2,
+h3 {
+  font-weight: 700;
+  line-height: 1.1; // 1.1 means 110%
+  margin-top: 0; // reset to prevent browser adding margin-top and margin-bottom to these elements
+}
+
+// one method for responsive typography
+// h1 {
+//   font-size: 28px;
+
+//   @include util.breakpoint(medium) {
+//     font-size: 36px;
+//   }
+
+//   @include util.breakpoint(large) {
+//     font-size: 48px;
+//   }
+// }
+
+// another method is using vw.. viewport width
+/*
+If we want a final font-size to be around 28px for a mobile device that is 375px wide, we can derive a vw by doing this...
+- 28 / 375 (28 divided by 375) we get 0.074666667 or 0.075 as roundup.
+Now, 0.075 x 100% we get 7.5% or 7.5vw.
+
+This changes for different device-width
+e.g ipad is 810px wide, so therefore 
+810 x 0.075 = 60.75px; in any other words, on ipad, 7.5vw = 60.75px
+*/
+h1 {
+  // font-size: 7.5vw;
+  // font-size: calc(16px + 2vw);
+  // converting px to rem: 1rem = 16px, 28px to rem => 28/16 = 1.75rem. 40/16 = 2.5rem
+
+  // font-size: clamp(28px, 16px + 2vw, 40px);
+  font-size: clamp(util.rem(28), util.rem(16) + 2vw, util.rem(40));
+  // font-size: clamp(1.75rem, 1rem + 2vw, 2.5rem);
+}
+
+h2 {
+  // font-size: clamp(22px, 14px + 1.5vw, 36px);
+  font-size: clamp(util.rem(22), util.rem(14) + 1.5vw, util.rem(36));
+  // font-size: clamp(1.375rem, 0.875rem + 2vw, 2.25rem);
+}
+
+// <p>
+p {
+  margin-top: 0; // reset to prevent browser adding margin-top and margin-bottom to these elements
+  font-size: util.rem(16);
+}
+
+// <a>
+a,
+a:visited,
+a:active {
+  text-decoration: none;
+}

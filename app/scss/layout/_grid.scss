@@ -1,0 +1,57 @@
+@use "../util/" as util;
+@use "../util/functions" as functions;
+
+.grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: auto auto;
+  gap: util.rem(40);
+  //   max-width: 1000px;
+  width: min(
+    100% - util.rem(40),
+    util.rem(1000)
+  ); // 40px is the 20px each for padding-left and right. This works just like adding real padding.
+
+  //   margin: 0 auto;
+  margin-inline: auto; // margin-inline allows you to set margin-left and right without touch margin top and bottom like (margin: 0 auto)...
+
+  @include util.breakpoint(large) {
+    grid-template-columns: 2fr 1fr;
+    grid-template-rows: auto;
+  }
+
+  &__main,
+  &__sidebar {
+    padding: util.rem(40);
+  }
+
+  &__main {
+    background-color: hsl(240, 95%, 30%);
+
+    @include util.breakpoint(medium) {
+      background-color: hsl(120, 97%, 14%);
+    }
+
+    @include util.breakpoint(large) {
+      background-color: hsl(16, 98%, 24%);
+    }
+  }
+
+  &__sidebar {
+    // @include util.breakpoint(large) {
+    //   text-align: left;
+    // }
+    @include util.breakpoint-down(medium) {
+      text-align: right;
+    }
+  }
+
+  &__widget {
+    background-color: hsl(300, 98%, 22%);
+    padding: functions.rem(16);
+
+    &--green {
+      background-color: hsl(120, 98%, 19%);
+    }
+  }
+}

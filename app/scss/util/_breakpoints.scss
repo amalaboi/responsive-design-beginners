@@ -1,0 +1,55 @@
+@use "functions" as functions;
+// 700px, 900px, 1440px
+/*
+medium: 700px
+large: 900px
+xlarge: 1440px
+
+calculated into em... 
+medium: 700px / 16px ==> 43.75em
+large: 900px / 16px ==> 56.25em
+xlarge: 1440px / 16px ==> 90em
+*/
+
+// sass map
+// $breakpoints-up: (
+//   "medium": 43.75em,
+//   "large": 56.25em,
+//   "xlarge": 90em,
+// );
+
+$breakpoints-up: (
+  "medium": functions.em(700),
+  "large": functions.em(900),
+  "xlarge": functions.em(1440),
+);
+
+/*
+This is how bootstrap does their breakpoints without collision
+medium: 699.98px
+large: 899.98px
+xlarge: 1439.98px
+
+calculated into em... 
+small: 699.98px / 16px ==> 43.7485em
+medium: 899.98px / 16px ==> 56.24875em
+large: 1439.98px / 16px ==> 89.99875em
+*/
+$breakpoints-down: (
+  "small": functions.em(699.98),
+  "medium": functions.em(899.98),
+  "large": functions.em(1439.98),
+);
+
+// sass mixin
+@mixin breakpoint($size) {
+  @media screen and (min-width: map-get($breakpoints-up, $size)) {
+    @content;
+  }
+}
+
+@mixin breakpoint-down($size) {
+  @media screen and (max-width: map-get($breakpoints-down, $size)) {
+    @content;
+  }
+}
