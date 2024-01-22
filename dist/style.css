@@ -33,9 +33,18 @@ html {
 body {
   margin: 0;
   padding: 0;
-  font-family: "Open Sans", sans-serif;
+  font-family: "Source Sans 3", sans-serif;
   background-color: var(--background-color);
   color: var(--text-color);
+}
+
+.visually-hidden {
+  position: absolute;
+  left: -10000px;
+  top: auto;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
 }
 
 h1,
@@ -56,11 +65,17 @@ e.g ipad is 810px wide, so therefore
 810 x 0.075 = 60.75px; in any other words, on ipad, 7.5vw = 60.75px
 */
 h1 {
-  font-size: clamp(1.75rem, 1rem + 2vw, 2.5rem);
+  font-size: 2.625rem;
+  font-size: clamp(2.625rem, 1.7727272727rem + 3.6363636364vw, 4.5rem);
 }
 
 h2 {
-  font-size: clamp(1.375rem, 0.875rem + 1.5vw, 2.25rem);
+  font-size: 2.25rem;
+  font-size: clamp(2.25rem, 1.9090909091rem + 1.4545454545vw, 3rem);
+}
+
+h3 {
+  font-size: 1.5rem;
 }
 
 p {
@@ -75,49 +90,19 @@ a:active {
 }
 
 :root {
-  --background-color: hsl(0, 0%, 13%);
-  --text-color: hsl(0, 0%, 100%);
+  --main-bg: hsl(0, 0%, 100%);
+  --text-light: hsl(0, 0%, 100%);
+  --text-dark: hsl(233, 14%, 25%);
+  --hero-bg: hsl(232, 58%, 55%);
+  --button-primary-bg: hsl(180, 100%, 42%);
+  --button-primary-text: hsl(233, 14%, 25%);
+  --button-secondary-bg: transparent;
+  --button-secondary-border: hsl(0, 0%, 100%);
+  --button-secondary-text: hsl(0, 0%, 100%);
+  --fullwidth-bg: hsl(320, 85%, 41%);
 }
 
-.grid {
-  display: grid;
-  grid-template-columns: 1fr;
-  grid-template-rows: auto auto;
-  gap: 2.5rem;
-  width: min(100% - 2.5rem, 62.5rem);
+.wrapper {
+  width: min(100% - 3rem, 75rem);
   margin-inline: auto;
-}
-@media screen and (min-width: 56.25em) {
-  .grid {
-    grid-template-columns: 2fr 1fr;
-    grid-template-rows: auto;
-  }
-}
-.grid__main, .grid__sidebar {
-  padding: 2.5rem;
-}
-.grid__main {
-  background-color: hsl(240, 95%, 30%);
-}
-@media screen and (min-width: 43.75em) {
-  .grid__main {
-    background-color: hsl(120, 97%, 14%);
-  }
-}
-@media screen and (min-width: 56.25em) {
-  .grid__main {
-    background-color: hsl(16, 98%, 24%);
-  }
-}
-@media screen and (max-width: 56.24875em) {
-  .grid__sidebar {
-    text-align: right;
-  }
-}
-.grid__widget {
-  background-color: hsl(300, 98%, 22%);
-  padding: 1rem;
-}
-.grid__widget--green {
-  background-color: hsl(120, 98%, 19%);
 }/*# sourceMappingURL=style.css.map */

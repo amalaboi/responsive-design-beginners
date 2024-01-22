@@ -1,0 +1,9 @@
+@use "../util/" as util;
+
+.wrapper {
+  width: min(
+    100% - util.rem(48),
+    util.rem(1200)
+  ); // 40px is the 20px each for padding-left and right. This works just like adding real padding.
+  margin-inline: auto;
+}
