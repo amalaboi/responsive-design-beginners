@@ -1,0 +1,65 @@
+@use "../util/" as util;
+
+.topnav {
+  background-color: var(--header-bg);
+
+  &__wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-block: 12px;
+
+    @include util.breakpoint(large) {
+      padding-block: 20px;
+    }
+  }
+
+  &__homelink {
+    &:hover {
+      opacity: 0.9;
+    }
+  }
+
+  &__logo {
+    display: block;
+    width: util.rem(70);
+    height: auto;
+
+    @include util.breakpoint(large) {
+      width: util.rem(128);
+    }
+  }
+
+  &__links {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    gap: 20px;
+
+    @include util.breakpoint(large) {
+      gap: 40px; // note: using px for the gap instead of rem, resist the gap from ever increasing more than 40px should in case the parent size increases or is more than 16px.
+    }
+  }
+
+  &__item {
+    list-style: none;
+  }
+
+  &__link {
+    color: var(--text-light);
+    font-weight: bold;
+    font-size: util.rem(14);
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+
+    &:hover {
+      text-decoration: underline;
+      text-decoration-thickness: 2px;
+      text-underline-offset: 4px;
+    }
+
+    @include util.breakpoint(large) {
+      font-size: util.rem(16);
+    }
+  }
+}
