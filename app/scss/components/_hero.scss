@@ -1,0 +1,65 @@
+@use "../util/" as util;
+
+.hero {
+  background-color: var(--hero-bg);
+  color: var(--text-light);
+
+  &__wrapper {
+    // display: flex;
+    // flex-direction: column;
+    // align-items: center;
+
+    display: grid;
+    grid-template-columns: 1fr;
+    padding-block: 30px 60px; // using px to restrict it from scaling up.
+    gap: 40px;
+    justify-items: center;
+    align-items: center;
+
+    @include util.breakpoint(large) {
+      // flex-direction: row-reverse;
+      grid-template-columns: 6fr 5fr;
+      padding-block: 40px 80px;
+      gap: 10.25%; // 1/12(using 12 column grid in figma) , answer multiply by 100%.
+    }
+  }
+
+  &__image {
+    // width: util.rem(199.89);
+
+    // @include util.breakpoint(large) {
+    //   width: util.rem(483);
+    // }
+    width: 61%;
+    max-width: util.rem(483);
+    // margin-block-end: util.rem(40);
+    // align-self: center;
+    @include util.breakpoint(large) {
+      // margin-block-end: util.rem(0);
+      // flex: 5;
+      width: 100%;
+      order: 2;
+      // align-self: center;
+    }
+  }
+
+  &__text {
+    @include util.breakpoint(large) {
+      // flex: 6;
+    }
+  }
+
+  // &__title {
+  // }
+
+  &__content {
+    margin-block-end: 40px;
+  }
+
+  &__button {
+    &:first-of-type {
+      // outline: 2px solid red;
+      margin-inline-end: 20px;
+    }
+  }
+}

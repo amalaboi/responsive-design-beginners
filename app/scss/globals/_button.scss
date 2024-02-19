@@ -1,0 +1,38 @@
+@use "../util/" as util;
+
+.button {
+  display: inline-block;
+  font-size: util.rem(18);
+  line-height: 1;
+  letter-spacing: 0.05em; // 0.05em = 5%
+  text-transform: uppercase;
+  padding: util.rem(10) util.rem(14);
+  font-weight: 700;
+  border-radius: util.rem(24);
+  transition-property: background-color, border, color;
+  transition-duration: 0.2s;
+  transition-timing-function: ease-in-out;
+
+  &.primary {
+    background-color: var(--button-primary-bg);
+    color: var(--button-primary-text);
+    border: 2px solid var(--button-primary-bg);
+
+    &:hover {
+      background-color: var(--button-primary-bg-hover);
+      border: 2px solid var(--button-primary-bg-hover);
+    }
+  }
+
+  &.secondary {
+    background-color: var(--button-secondary-bg);
+    color: var(--button-secondary-text);
+    border: 2px solid var(--button-secondary-border);
+
+    &:hover {
+      background-color: var(--button-secondary-bg-hover);
+      color: var(--button-secondary-text-hover);
+      // border: 2px solid var(--button-secondary-border);
+    }
+  }
+}

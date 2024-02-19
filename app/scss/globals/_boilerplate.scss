@@ -21,6 +21,12 @@ body {
   margin-block-end: 50vh; // Temporary, remove after this website is complete.
 }
 
+img {
+  display: block;
+  width: 100%; // This will override the natural width size of the image..
+  height: auto;
+}
+
 .visually-hidden {
   position: absolute;
   left: -10000px;
