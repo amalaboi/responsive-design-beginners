@@ -6,4 +6,9 @@
     util.rem(1200)
   ); // 40px is the 20px each for padding-left and right. This works just like adding real padding.
   margin-inline: auto;
+  padding-block: 60px;
+
+  @include util.breakpoint(large) {
+    padding-block: 80px;
+  }
 }
